@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2015 Adam Huang <poisondog@gmail.com>
+ * Copyright (C) 2014 Adam Huang <poisondog@gmail.com>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,13 +13,24 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package poisondog.demo;
+package poisondog.rule;
+
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
 
 /**
- * @author Adam Huang <poisondog@gmail.com>
+ * @author poisondog <poisondog@gmail.com>
  */
-public class Demo {
-	public static void main (String [] args){
-		System.out.println("Hello Java!");
+public class InverterRuleTest {
+
+	@Before
+	public void setUp() throws Exception {
+	}
+
+	@Test
+	public void testExecute() throws Exception {
+		Assert.assertTrue(new InverterRule(new FalseRule()).execute(null));
+		Assert.assertFalse(new InverterRule(new TrueRule()).execute(null));
 	}
 }

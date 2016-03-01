@@ -13,23 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package poisondog.demo;
+package poisondog.rule;
 
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
-
+import poisondog.core.Mission;
 /**
  * @author Adam Huang <poisondog@gmail.com>
  */
-public class DemoTest {
-
-	@Before
-	public void setUp() throws Exception {
-	}
-
-	@Test
-	public void testApp() throws Exception {
-		Assert.assertTrue(true);
-	}
+public interface Rule<T> extends Mission<T> {
+	public Boolean execute(T target) throws Exception;
 }

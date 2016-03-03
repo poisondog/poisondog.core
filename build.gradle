@@ -6,11 +6,15 @@
  * For more details take a look at the Java Quickstart chapter in the Gradle
  * user guide available at http://gradle.org/docs/2.3/userguide/tutorial_java_projects.html
  */
+project.group = 'poisondog'
 project.version = '1.0.0'
 
-apply from: 'repositories.gradle'
 // Apply the java plugin to add support for Java
 apply plugin: 'java'
+
+repositories {
+	jcenter()
+}
 
 // In this section you declare the dependencies for your production and test code
 dependencies {
@@ -24,3 +28,12 @@ dependencies {
 	testCompile "junit:junit:4.11"
 	testCompile "org.mockito:mockito-all:1.9.5"
 }
+
+def applyFrom = { filename ->
+	if (project.file(filename).exists()) {
+		apply from: filename
+	} else {
+		println "can't find " + filename
+	}
+}
+applyFrom("repositories.gradle")

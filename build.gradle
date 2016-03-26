@@ -13,8 +13,20 @@ project.version = '1.0.0'
 apply plugin: 'java'
 
 repositories {
-	jcenter()
+	maven {
+		url "http://poisondog.com:8081/nexus/content/groups/public/"
+	}
 }
+
+buildscript {
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath "com.tensorwrench.gradle:gradle-emma-plugin:+"
+	}
+}
+apply plugin: 'emma'
 
 // In this section you declare the dependencies for your production and test code
 dependencies {

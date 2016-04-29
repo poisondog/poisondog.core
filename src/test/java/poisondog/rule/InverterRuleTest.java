@@ -33,15 +33,4 @@ public class InverterRuleTest {
 		Assert.assertTrue(new InverterRule(new FalseRule()).execute(null));
 		Assert.assertFalse(new InverterRule(new TrueRule()).execute(null));
 	}
-
-//	@Test
-//	public void testConstructor() throws Exception {
-//		InverterRule rule = (InverterRule)Class.forName("InverterRule").newInstance();
-//		try {
-//			rule.execute(null);
-//			Assert.fail("no rule can invert");
-//		} catch(Exception e) {
-//			Assert.assertTrue(true);
-//		}
-//	}
 }

@@ -27,7 +27,7 @@ public class AndRuleTest {
 
 	@Before
 	public void setUp() throws Exception {
-		mRule = new AndRule<Object>();
+		mRule = new AndRule();
 	}
 
 	@Test

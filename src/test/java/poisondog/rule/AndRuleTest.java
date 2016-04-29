@@ -36,6 +36,12 @@ public class AndRuleTest {
 	}
 
 	@Test
+	public void testInterface() throws Exception {
+		Assert.assertTrue(mRule instanceof Rule);
+		Assert.assertTrue(mRule instanceof Iterable);
+	}
+
+	@Test
 	public void testExecute1() throws Exception {
 		mRule.add(new FalseRule());
 		mRule.add(new FalseRule());

@@ -59,6 +59,11 @@ public class OrRuleTest {
 	}
 
 	@Test
+	public void testAnd() throws Exception {
+		Assert.assertNotNull(new AndRule());
+	}
+
+	@Test
 	public void testNeverCall() throws Exception {
 		TrueRule rule = Mockito.spy(new TrueRule());
 		mRule.add(new TrueRule());

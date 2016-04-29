@@ -31,6 +31,12 @@ public class OrRuleTest {
 	}
 
 	@Test
+	public void testConstructor() throws Exception {
+		mRule = new OrRule<Object>();
+		Assert.assertNotNull(mRule);
+	}
+
+	@Test
 	public void testExecute1() throws Exception {
 		mRule.add(new FalseRule());
 		mRule.add(new FalseRule());

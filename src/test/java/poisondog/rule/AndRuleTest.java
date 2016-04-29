@@ -31,6 +31,12 @@ public class AndRuleTest {
 	}
 
 	@Test
+	public void testConstructor() throws Exception {
+		mRule = new AndRule();
+		Assert.assertNotNull(mRule);
+	}
+
+	@Test
 	public void testExecute1() throws Exception {
 		mRule.add(new FalseRule());
 		mRule.add(new FalseRule());

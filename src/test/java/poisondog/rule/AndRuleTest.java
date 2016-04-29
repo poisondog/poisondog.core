@@ -31,9 +31,8 @@ public class AndRuleTest {
 	}
 
 	@Test
-	public void testConstructor() throws Exception {
-		mRule = new AndRule();
-		Assert.assertNotNull(mRule);
+	public void testEquals() throws Exception {
+		Assert.assertNotEquals(mRule, null);
 	}
 
 	@Test

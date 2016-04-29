@@ -26,7 +26,6 @@ public class AndRule<T> implements Rule<T>, Iterable<Rule<T>> {
 	private Collection<Rule<T>> mCollection;
 
 	public AndRule() {
-		super();
 		mCollection = new LinkedList<Rule<T>>();
 	}
 

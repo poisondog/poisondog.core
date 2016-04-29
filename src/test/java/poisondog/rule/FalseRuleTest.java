@@ -32,6 +32,7 @@ public class FalseRuleTest {
 
 	@Test
 	public void testExecute() throws Exception {
+		AndRule and = new AndRule();
 		Assert.assertFalse(mRule.execute(null));
 	}
 

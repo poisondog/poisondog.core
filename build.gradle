@@ -14,7 +14,7 @@ apply plugin: 'java'
 
 repositories {
 	maven {
-		url "http://poisondog.com:8081/nexus/content/groups/public/"
+		url "http://poisondog.com:8081/repository/maven-public/"
 	}
 }
 

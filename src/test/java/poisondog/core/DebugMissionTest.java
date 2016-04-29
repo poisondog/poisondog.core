@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014 Adam Huang <poisondog@gmail.com>
+ * Copyright (C) 2016 Adam Huang <poisondog@gmail.com>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,37 +13,26 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package poisondog.rule;
+package poisondog.core;
 
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 /**
- * @author poisondog <poisondog@gmail.com>
+ * @author Adam Huang <poisondog@gmail.com>
+ * @since 2016-04-29
  */
-public class FalseRuleTest {
-	private FalseRule mRule;
+public class DebugMissionTest {
 
 	@Before
 	public void setUp() throws Exception {
-		mRule = new FalseRule();
 	}
 
 	@Test
-	public void testExecute() throws Exception {
-		Assert.assertFalse(mRule.execute(null));
-	}
-
-	@Test
-	public void testEquals() throws Exception {
-		Assert.assertNotEquals(mRule, null);
-		Assert.assertNotEquals(mRule, new String());
-		Assert.assertEquals(mRule, new FalseRule());
-	}
-
-	@Test
-	public void testClone() throws Exception {
-		Assert.assertEquals(mRule, mRule.clone());
+	public void testSetText() throws Exception {
+		DebugMission mission = new DebugMission("root");
+		mission.setText("text");
+		Assert.assertEquals("inputtext", mission.execute("input"));
 	}
 }

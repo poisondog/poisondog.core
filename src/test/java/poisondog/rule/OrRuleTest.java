@@ -23,11 +23,11 @@ import org.mockito.Mockito;
  * @author poisondog <poisondog@gmail.com>
  */
 public class OrRuleTest {
-	private OrRule mRule;
+	private OrRule<Object> mRule;
 
 	@Before
 	public void setUp() throws Exception {
-		mRule = new OrRule();
+		mRule = new OrRule<Object>();
 	}
 
 	@Test
@@ -65,5 +65,23 @@ public class OrRuleTest {
 		mRule.add(rule);
 		Assert.assertTrue(mRule.execute(null));
 		Mockito.verify(rule, Mockito.never()).execute(Mockito.anyObject());
+	}
+
+	@Test
+	public void testIteratorAllTrue() throws Exception {
+		mRule.add(new TrueRule());
+		mRule.add(new TrueRule());
+		for (Rule<Object> rule : mRule) {
+			Assert.assertEquals(new TrueRule(), rule);
+		}
+	}
+
+	@Test
+	public void testIteratorAllFalse() throws Exception {
+		mRule.add(new FalseRule());
+		mRule.add(new FalseRule());
+		for (Rule<Object> rule : mRule) {
+			Assert.assertEquals(new FalseRule(), rule);
+		}
 	}
 }

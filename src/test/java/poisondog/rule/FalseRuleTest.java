@@ -37,6 +37,8 @@ public class FalseRuleTest {
 
 	@Test
 	public void testEquals() throws Exception {
+		Assert.assertNotEquals(mRule, null);
+		Assert.assertNotEquals(mRule, new String());
 		Assert.assertEquals(mRule, new FalseRule());
 	}
 

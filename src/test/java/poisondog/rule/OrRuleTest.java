@@ -31,6 +31,31 @@ public class OrRuleTest {
 	}
 
 	@Test
+	public void testNotEquals() throws Exception {
+		Assert.assertNotEquals(mRule, null);
+		Assert.assertNotEquals(mRule, new String());
+
+		mRule.add(new FalseRule());
+		mRule.add(new TrueRule());
+
+		OrRule<Object> another = new OrRule<Object>();
+		another.add(new FalseRule());
+		another.add(new FalseRule());
+		Assert.assertNotEquals(mRule, another);
+	}
+
+	@Test
+	public void testEquals() throws Exception {
+		mRule.add(new FalseRule());
+		mRule.add(new TrueRule());
+
+		OrRule<Object> another = new OrRule<Object>();
+		another.add(new FalseRule());
+		another.add(new TrueRule());
+		Assert.assertEquals(mRule, another);
+	}
+
+	@Test
 	public void testExecute1() throws Exception {
 		mRule.add(new FalseRule());
 		mRule.add(new FalseRule());

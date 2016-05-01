@@ -19,11 +19,13 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.List;
+
 /**
  * @author Adam Huang <poisondog@gmail.com>
  */
 public class AndRule<T> implements Rule<T>, Iterable<Rule<T>> {
-	private Collection<Rule<T>> mCollection;
+	private List<Rule<T>> mCollection;
 
 	public AndRule() {
 		mCollection = new LinkedList<Rule<T>>();
@@ -45,5 +47,17 @@ public class AndRule<T> implements Rule<T>, Iterable<Rule<T>> {
 	@Override
 	public Iterator<Rule<T>> iterator() {
 		return mCollection.iterator();
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (!(obj instanceof AndRule))
+			return false;
+		AndRule another = (AndRule)obj;
+		for (int i = 0; i < mCollection.size(); i++) {
+			if (!mCollection.get(i).equals(another.mCollection.get(i)))
+				return false;
+		}
+		return true;
 	}
 }

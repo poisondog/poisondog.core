@@ -21,12 +21,13 @@ import java.util.Iterator;
 import java.util.Observer;
 import java.util.Observable;
 import java.util.LinkedList;
+import java.util.List;
 
 /**
  * @author Adam Huang <poisondog@gmail.com>
  */
 public class OrRule<T> implements Rule<T>, Iterable<Rule<T>>, Observer {
-	private Collection<Rule<T>> mCollection;
+	private List<Rule<T>> mCollection;
 
 	public OrRule() {
 		mCollection = new LinkedList<Rule<T>>();
@@ -61,4 +62,15 @@ public class OrRule<T> implements Rule<T>, Iterable<Rule<T>>, Observer {
 		}
 	}
 
+	@Override
+	public boolean equals(Object obj) {
+		if (!(obj instanceof OrRule))
+			return false;
+		OrRule another = (OrRule)obj;
+		for (int i = 0; i < mCollection.size(); i++) {
+			if (!mCollection.get(i).equals(another.mCollection.get(i)))
+				return false;
+		}
+		return true;
+	}
 }

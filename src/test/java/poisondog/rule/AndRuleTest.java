@@ -31,8 +31,28 @@ public class AndRuleTest {
 	}
 
 	@Test
-	public void testEquals() throws Exception {
+	public void testNotEquals() throws Exception {
 		Assert.assertNotEquals(mRule, null);
+		Assert.assertNotEquals(mRule, new String());
+
+		mRule.add(new FalseRule());
+		mRule.add(new TrueRule());
+
+		AndRule<Object> another = new AndRule<Object>();
+		another.add(new FalseRule());
+		another.add(new FalseRule());
+		Assert.assertNotEquals(mRule, another);
+	}
+
+	@Test
+	public void testEquals() throws Exception {
+		mRule.add(new FalseRule());
+		mRule.add(new TrueRule());
+
+		AndRule<Object> another = new AndRule<Object>();
+		another.add(new FalseRule());
+		another.add(new TrueRule());
+		Assert.assertEquals(mRule, another);
 	}
 
 	@Test

@@ -38,7 +38,7 @@ public class AndRuleTest {
 		mRule.add(new FalseRule());
 		mRule.add(new TrueRule());
 
-		AndRule<Object> another = new AndRule<Object>();
+		AndRule<Object> another = new AndRule();
 		another.add(new FalseRule());
 		another.add(new FalseRule());
 		Assert.assertNotEquals(mRule, another);
@@ -50,8 +50,8 @@ public class AndRuleTest {
 		mRule.add(new TrueRule());
 
 		AndRule<Object> another = new AndRule<Object>();
-		another.add(new FalseRule());
 		another.add(new TrueRule());
+		another.add(new FalseRule());
 		Assert.assertEquals(mRule, another);
 	}
 

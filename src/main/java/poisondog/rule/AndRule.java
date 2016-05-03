@@ -54,10 +54,6 @@ public class AndRule<T> implements Rule<T>, Iterable<Rule<T>> {
 		if (!(obj instanceof AndRule))
 			return false;
 		AndRule another = (AndRule)obj;
-		for (int i = 0; i < mCollection.size(); i++) {
-			if (!mCollection.get(i).equals(another.mCollection.get(i)))
-				return false;
-		}
-		return true;
+		return mCollection.containsAll(another.mCollection) && another.mCollection.containsAll(mCollection);
 	}
 }

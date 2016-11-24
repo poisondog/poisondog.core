@@ -22,7 +22,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * @author Adam Huang <poisondog@gmail.com>
+ * @author <a href="mailto:poisondog@gmail.com">Adam Huang</a>
  */
 public class AndRule<T> implements Rule<T>, Iterable<Rule<T>> {
 	private List<Rule<T>> mCollection;

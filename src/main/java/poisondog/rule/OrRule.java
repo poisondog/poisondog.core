@@ -24,7 +24,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * @author Adam Huang <poisondog@gmail.com>
+ * @author <a href="mailto:poisondog@gmail.com">Adam Huang</a>
  */
 public class OrRule<T> implements Rule<T>, Iterable<Rule<T>>, Observer {
 	private List<Rule<T>> mCollection;

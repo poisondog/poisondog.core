@@ -17,7 +17,7 @@ package poisondog.rule;
 
 import poisondog.core.Mission;
 /**
- * @author Adam Huang <poisondog@gmail.com>
+ * @author <a href="mailto:poisondog@gmail.com">Adam Huang</a>
  */
 public interface Rule<T> extends Mission<T> {
 	public Boolean execute(T target) throws Exception;

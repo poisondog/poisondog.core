@@ -19,7 +19,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * @author Adam Huang <poisondog@gmail.com>
+ * @author <a href="mailto:poisondog@gmail.com">Adam Huang</a>
  */
 public class OrderMission<T> implements Mission<T> {
 	private List<Mission> mMissions;

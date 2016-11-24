@@ -20,7 +20,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
- * @author poisondog <poisondog@gmail.com>
+ * @author <a href="mailto:poisondog@gmail.com">Adam Huang</a>
  */
 public class InverterRuleTest {
 

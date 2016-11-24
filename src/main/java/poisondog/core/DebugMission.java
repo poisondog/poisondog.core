@@ -16,7 +16,7 @@
 package poisondog.core;
 
 /**
- * @author Adam Huang <poisondog@gmail.com>
+ * @author <a href="mailto:poisondog@gmail.com">Adam Huang</a>
  */
 public class DebugMission implements Mission<String> {
 	private String mText;

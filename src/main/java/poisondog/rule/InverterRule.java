@@ -16,7 +16,7 @@
 package poisondog.rule;
 
 /**
- * @author Adam Huang <poisondog@gmail.com>
+ * @author <a href="mailto:poisondog@gmail.com">Adam Huang</a>
  */
 public class InverterRule<T> implements Rule<T> {
 	private Rule<T> mRule;

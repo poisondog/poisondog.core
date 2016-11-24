@@ -16,7 +16,7 @@
 package poisondog.rule;
 
 /**
- * @author Adam Huang <poisondog@gmail.com>
+ * @author <a href="mailto:poisondog@gmail.com">Adam Huang</a>
  */
 public class TrueRule<T> implements Rule<T>, Cloneable {
 

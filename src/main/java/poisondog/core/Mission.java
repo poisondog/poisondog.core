@@ -18,7 +18,7 @@ package poisondog.core;
 /**
  * handle mission without current project.
  * like database access, save or load file, internet connection.
- * @author Adam Huang <poisondog@gmail.com>
+ * @author <a href="mailto:poisondog@gmail.com">Adam Huang</a>
  */
 public interface Mission<T> {
 	public Object execute(T input) throws Exception;

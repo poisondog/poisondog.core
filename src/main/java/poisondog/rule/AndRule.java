@@ -35,6 +35,10 @@ public class AndRule<T> implements Rule<T>, Iterable<Rule<T>> {
 		mCollection.add(rule);
 	}
 
+	public void clear() {
+		mCollection.clear();
+	}
+
 	@Override
 	public Boolean execute(T target) throws Exception {
 		for (Rule<T> rule : mCollection) {

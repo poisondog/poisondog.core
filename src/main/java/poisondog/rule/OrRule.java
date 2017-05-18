@@ -37,6 +37,10 @@ public class OrRule<T> implements Rule<T>, Iterable<Rule<T>>, Observer {
 		mCollection.add(rule);
 	}
 
+	public void clear() {
+		mCollection.clear();
+	}
+
 	@Override
 	public Boolean execute(T target) throws Exception {
 		for (Rule<T> rule : mCollection) {

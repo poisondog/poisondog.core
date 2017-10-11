@@ -7,11 +7,11 @@
  * user guide available at http://gradle.org/docs/2.3/userguide/tutorial_java_projects.html
  */
 project.group = 'poisondog'
-project.version = '1.0.4'
+project.version = '1.0.5'
 
 apply plugin: 'java'
-sourceCompatibility = 1.7
-targetCompatibility = 1.7
+sourceCompatibility = 1.5
+targetCompatibility = 1.5
 
 repositories {
 	maven {

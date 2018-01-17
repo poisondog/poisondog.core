@@ -39,5 +39,6 @@ public class DataTest {
 	public void testWithContent() throws Exception {
 		Data data = new Data("content".getBytes());
 		Assert.assertEquals("content", new String(data.getContent()));
+		Assert.assertEquals("content", data.toString());
 	}
 }

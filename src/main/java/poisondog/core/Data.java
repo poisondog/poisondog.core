@@ -50,4 +50,9 @@ public class Data {
 	public InputStream toInputStream() {
 		return new ByteArrayInputStream(mContent);
 	}
+
+	@Override
+	public String toString() {
+		return new String(mContent);
+	}
 }

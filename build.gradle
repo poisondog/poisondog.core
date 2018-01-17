@@ -6,46 +6,71 @@
  * For more details take a look at the Java Quickstart chapter in the Gradle
  * user guide available at http://gradle.org/docs/2.3/userguide/tutorial_java_projects.html
  */
-project.group = 'poisondog'
-project.version = '1.0.5'
+buildscript {
+	repositories {
+		jcenter()
+	}
+}
 
-apply plugin: 'java'
+plugins {
+	id "com.jfrog.bintray" version "1.7"
+}
+
+group = 'poisondog'
+version = '1.0.5'
+
+allprojects {
+	repositories {
+		jcenter()
+	}
+	apply plugin: 'maven'
+	apply plugin: 'maven-publish'
+	apply plugin: 'java'
+}
+
 sourceCompatibility = 1.5
 targetCompatibility = 1.5
 
-repositories {
-	maven {
-		url "http://poisondog.com:8081/repository/maven-public/"
+publishing {
+	publications {
+		MyPublication(MavenPublication) {
+			from components.java
+			groupId group
+			artifactId 'poisondog.core'
+			version version
+		}
 	}
 }
 
-buildscript {
-	repositories {
-		mavenCentral()
+bintray {
+	Properties properties = new Properties()
+	properties.load(project.rootProject.file('local.properties').newDataInputStream())
+	user = properties.getProperty('bintray.user')
+	key = properties.getProperty('bintray.apikey')
+//	user = project.hasProperty('bintrayUser') ? project.property('bintrayUser') : System.getenv('BINTRAY_USER')
+//	key = project.hasProperty('bintrayApiKey') ? project.property('bintrayApiKey') : System.getenv('BINTRAY_API_KEY')
+
+	publications = ['MyPublication']
+	pkg {
+		repo = 'poisondog'
+		name = 'poisondog.core'
+		licenses = ['Apache-2.0']
+		vcsUrl = 'https://github.com/poisondog/poisondog.core.git'
+//		labels = ['gear', 'gore', 'gorilla']
+//		publicDownloadNumbers = true
+//		attributes= ['a': ['ay1', 'ay2'], 'b': ['bee'], c: 'cee'] //Optional package-level attributes
+		version {
+			name = version
+			desc = 'poisondog core design'
+//			vcsTag = '1.0.0'
+//			attributes = ['gradle-plugin': 'com.use.less:com.use.less.gradle:gradle-useless-plugin']
+		}
 	}
-	dependencies {
-		classpath "net.saliman:gradle-cobertura-plugin:2.3.1"
-	}
-}
-apply plugin: 'net.saliman.cobertura'
-cobertura {
-	coverageFormats = ['html', 'xml']
 }
 
 dependencies {
-	compile 'org.slf4j:slf4j-api:1.7.7'
-
+//	compile 'org.slf4j:slf4j-api:1.7.7'
 	testCompile "junit:junit:4.11"
 	testCompile "org.mockito:mockito-all:1.9.5"
 }
 
-def applyFrom = { filename ->
-	if (project.file(filename).exists()) {
-		apply from: filename
-	} else {
-		println "can't find " + filename
-	}
-}
-applyFrom("repositories.gradle")
-//applyFrom("temp.gradle")
-applyFrom("maven.gradle")

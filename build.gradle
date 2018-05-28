@@ -6,14 +6,9 @@
  * For more details take a look at the Java Quickstart chapter in the Gradle
  * user guide available at http://gradle.org/docs/2.3/userguide/tutorial_java_projects.html
  */
-buildscript {
-	repositories {
-		jcenter()
-	}
-}
-
 plugins {
 	id "com.jfrog.bintray" version "1.7"
+	id "net.saliman.cobertura" version "2.3.1"
 }
 
 group = 'poisondog'
@@ -68,8 +63,12 @@ bintray {
 	}
 }
 
+cobertura {
+	coverageFormats = ['html', 'xml']
+}
+
 dependencies {
-//	compile 'org.slf4j:slf4j-api:1.7.7'
+	compile 'org.slf4j:slf4j-api:1.7.7'
 	testCompile "junit:junit:4.11"
 	testCompile "org.mockito:mockito-all:1.9.5"
 }

@@ -31,7 +31,7 @@ publishing {
 		MyPublication(MavenPublication) {
 			from components.java
 			groupId group
-			artifactId 'poisondog.core'
+			artifactId project.name
 			version version
 		}
 	}
@@ -48,7 +48,7 @@ bintray {
 	publications = ['MyPublication']
 	pkg {
 		repo = 'poisondog'
-		name = 'poisondog.core'
+		name = project.name
 		licenses = ['Apache-2.0']
 		vcsUrl = 'https://github.com/poisondog/poisondog.core.git'
 //		labels = ['gear', 'gore', 'gorilla']

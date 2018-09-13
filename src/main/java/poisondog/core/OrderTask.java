@@ -21,7 +21,7 @@ import java.util.ArrayList;
  * @author Adam Huang
  * @since 2018-09-13
  */
-public class OrderTask implements Runnable {
+public class OrderTask implements Runnable, Mission<Void> {
 	private ArrayList<Runnable> mContent;
 
 	/**
@@ -40,5 +40,11 @@ public class OrderTask implements Runnable {
 		for (Runnable task : mContent) {
 			task.run();
 		}
+	}
+
+	@Override
+	public Void execute(Void none) {
+		run();
+		return none;
 	}
 }

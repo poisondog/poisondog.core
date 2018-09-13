@@ -44,4 +44,14 @@ public class TaskTest {
 		Assert.assertEquals("input", mMission.getInput());
 		Assert.assertTrue(mMission.isPerformed());
 	}
+
+	@Test
+	public void testWhenException() throws Exception {
+		// TODO complete it
+	}
+
+	@Test
+	public void testWhenExceptionHandlerException() throws Exception {
+		// TODO complete it
+	}
 }

@@ -21,7 +21,7 @@ import poisondog.core.NoMission;
 /**
  * @author Adam Huang
  */
-public class Task<T> implements Runnable {
+public class Task<T> implements Runnable, Mission<Object> {
 	private Mission<T> mMission;
 	private Mission mHandler;
 	private T mInput;
@@ -41,7 +41,7 @@ public class Task<T> implements Runnable {
 		mMission = mission;
 		mInput = input;
 		mHandler = handler;
-		mExceptionHandler = new NoMission<Exception>();
+		mExceptionHandler = new PrintStackTrace();
 	}
 
 	public void setExceptionHandler(Mission<Exception> handler) {
@@ -58,6 +58,20 @@ public class Task<T> implements Runnable {
 			} catch(Exception v) {
 				throw new IllegalArgumentException("Exception Handler did not to throw Exception!");
 			}
+		}
+	}
+
+	@Override
+	public Object execute(Object none) {
+		run();
+		return none;
+	}
+
+	class PrintStackTrace implements Mission<Exception> {
+		@Override
+		public Void execute(Exception e) {
+			e.printStackTrace();
+			return null;
 		}
 	}
 }

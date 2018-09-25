@@ -46,6 +46,13 @@ public class TaskTest {
 	}
 
 	@Test
+	public void testExecute() throws Exception {
+		String result = (String) mTask.execute("para");
+		Assert.assertEquals("para", result);
+		Assert.assertTrue(mMission.isPerformed());
+	}
+
+	@Test
 	public void testWhenException() throws Exception {
 		// TODO complete it
 	}

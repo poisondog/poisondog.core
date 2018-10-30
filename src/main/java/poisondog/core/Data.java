@@ -40,6 +40,13 @@ public class Data {
 		mContent = content;
 	}
 
+	/**
+	 * Constructor
+	 */
+	public Data(String content) {
+		mContent = content.getBytes();
+	}
+
 	public byte[] getContent() {
 		return mContent;
 	}

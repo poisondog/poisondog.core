@@ -41,4 +41,10 @@ public class DataTest {
 		Assert.assertEquals("content", new String(data.getContent()));
 		Assert.assertEquals("content", data.toString());
 	}
+
+	@Test
+	public void testWithString() throws Exception {
+		Data data = new Data("content");
+		Assert.assertEquals("content", data.toString());
+	}
 }

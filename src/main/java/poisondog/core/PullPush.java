@@ -19,7 +19,7 @@ package poisondog.core;
  * @author <a href="mailto:poisondog@gmail.com">Adam Huang</a>
  * @since 2019-01-15
  */
-public interface LoadSave<T> {
-	public T load(Object input) throws Exception;
-	public Object save(T input) throws Exception;
+public interface PullPush<T> {
+	public T pull(Object input) throws Exception;
+	public Object push(T input) throws Exception;
 }

@@ -18,10 +18,10 @@ package poisondog.rule;
 /**
  * @author <a href="mailto:poisondog@gmail.com">Adam Huang</a>
  */
-public class InverterRule<T> implements Rule<T> {
+public class NotRule<T> implements Rule<T> {
 	private Rule<T> mRule;
 
-	public InverterRule(Rule<T> rule) {
+	public NotRule(Rule<T> rule) {
 		mRule = rule;
 	}
 

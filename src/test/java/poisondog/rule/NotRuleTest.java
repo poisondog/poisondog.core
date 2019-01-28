@@ -22,7 +22,7 @@ import org.junit.Test;
 /**
  * @author <a href="mailto:poisondog@gmail.com">Adam Huang</a>
  */
-public class InverterRuleTest {
+public class NotRuleTest {
 
 	@Before
 	public void setUp() throws Exception {
@@ -30,7 +30,7 @@ public class InverterRuleTest {
 
 	@Test
 	public void testExecute() throws Exception {
-		Assert.assertTrue(new InverterRule(new FalseRule()).execute(null));
-		Assert.assertFalse(new InverterRule(new TrueRule()).execute(null));
+		Assert.assertTrue(new NotRule(new FalseRule()).execute(null));
+		Assert.assertFalse(new NotRule(new TrueRule()).execute(null));
 	}
 }
